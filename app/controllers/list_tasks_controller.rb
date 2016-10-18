@@ -1,0 +1,2 @@
+class ListTasksController < ApplicationController
+end

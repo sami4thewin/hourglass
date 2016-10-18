@@ -1,0 +1,2 @@
+class UserVideo < ApplicationRecord
+end
