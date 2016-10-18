@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+HourGlass
 
-Things you may want to cover:
+HourGlass is a Rails based app that tries to tackle the age old issue of procrastination.
 
-* Ruby version
+How does it attempt to accomplish that?
 
-* System dependencies
+By safely and securely storing your links, videos, and lists...for a designated period of time.
+After said period, HourGlass deletes your content.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This should, in theory, encourage you to keep up with your content that you feel is important.
+Otherwise you risk losing it.
