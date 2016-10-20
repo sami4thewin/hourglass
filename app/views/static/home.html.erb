@@ -1,0 +1,43 @@
+<h1>Welcome to Hourglass, hope you're ready to save some time...</h1>
+<br>
+
+<h3>Here are the users with the most completed tasks...</h3>
+<br>
+<% User.top.each do |u| %>
+<%= u.email %>
+<h4><%=u.completed%> tasks completed.</h4>
+<% end %>
+<br>
+
+<% if !@user.lists.empty? %>
+  <h3>Here are your active lists:</h3>
+  <br>
+  <% @user.lists.each do |l| %>
+  <li><%= link_to l.title, list_path(l) %></li>
+  <% end %>
+  <br>
+<% end %>
+<%= link_to "Click here to add a new list.", new_list_path %>
+<br>
+
+<% if !@user.links.empty? %>
+  <h3>Here are your active links:</h3>
+  <br>
+  <% @user.links.each do |li| %>
+  <li><%= link_to li.title, "users/#{current_user.id}/links/#{li.id}" %></li>
+  <% end %>
+  <br>
+<% end %>
+<%= link_to "Click here to add a new link.", new_link_path %>
+<br>
+
+<% if !@user.videos.empty? %>
+  <h3>Here are your active videos:</h3>
+  <br>
+  <% @user.videos.each do |v| %>
+  <li><%= link_to v.description, video_path(v) %></li>
+  <% end %>
+  <br>
+<% end %>
+<%= link_to "Click here to add a new video, please make sure to use an embed link.", new_video_path %>
+<br>

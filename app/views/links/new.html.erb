@@ -8,5 +8,10 @@
 <%= f.label :link %>
 <%= f.text_field :link %>
 <br>
+<%= f.fields_for :user_link do |l| %>
+ <%= l.label "Enter 1-3 as the number of weeks you'd like your link available for." %>
+ <%= l.number_field :expiration %><br>
+<% end %>
+<br>
 <%= f.submit "Submit Link" %>
 <% end %>

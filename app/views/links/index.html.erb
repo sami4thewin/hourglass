@@ -1,0 +1,10 @@
+<% @links.each do |v| %>
+<br>
+<h3>--------------------</h3>
+<li><h3><%= link_to v.title, link_path(v) %></h3></li>
+<h3>Here are users who are saving this link:</h3>
+<% v.users.each do |u| %>
+<li><%= u.email %></li>
+<% end %>
+<h3>--------------------</h3>
+<% end %>

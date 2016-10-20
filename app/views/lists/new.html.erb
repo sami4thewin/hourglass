@@ -2,11 +2,24 @@
 <%= f.label :title %>
 <%= f.text_field :title %>
 <br>
-<%= f.label :description %>
-<%= f.text_field :description %>
-<br>
-<%= f.label :link %>
-<%= f.text_field :link %>
-<br>
-<%= f.submit "Submit Link" %>
+<div class="field"><%= f.label :name, "Select your tasks" %><br>
+   <%= f.collection_select(:id, @tasks, :id, :description) %>
+ </div>
+
+ <ul>
+     <%= f.fields_for :tasks do |task| %>
+     <li>
+       Description: <%= task.text_field :description %>
+     </li>
+     <% end %>
+   </ul>
+
+
+   <%= f.fields_for :tasks do |task| %>
+    <%= task.label :description %>
+    <%= task.text_field :description %><br>
+    <% end %>
+
+
+<%= f.submit "Submit List" %>
 <% end %>
