@@ -3,6 +3,8 @@ class UserVideo < ApplicationRecord
   belongs_to :user
   belongs_to :video
 
+  validates :expiration, :inclusion => {:in => [1,2,3], :message => "Select between 1-3"}
+
   def expiration_date
     case self.expiration
     when 1

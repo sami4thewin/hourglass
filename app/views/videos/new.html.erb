@@ -1,4 +1,14 @@
 <%= form_for @video do |f| %>
+<% if @video.errors.any? %>
+    <div id="error_explanation">
+      <h2>There were some errors:</h2>
+      <ul>
+        <% @video.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <%= f.label :description %>
 <%= f.text_field :description %>
 <br>

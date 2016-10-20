@@ -32,6 +32,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'require_all'
 gem 'figaro'
+gem 'whenever', :require => false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

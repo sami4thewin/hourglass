@@ -14,8 +14,12 @@ class LinksController < ApplicationController
     # link.save
     # link.user_links.build(expiration_params.merge({user_id: current_user.id}))
     u_link = UserLink.new(user_id: current_user.id, link_id: link.id, expiration: params[:link][:user_link][:expiration].to_i)
-    u_link.save
-    redirect_to link_path(link)
+    if u_link.save
+      redirect_to link_path(link)
+    else
+      @link = Link.new
+      render :new
+    end
   end
 
   def show
