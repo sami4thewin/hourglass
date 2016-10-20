@@ -6,10 +6,10 @@ class VideosController < ApplicationController
 
   def create
     # binding.pry
-    video = Video.new
-    video.description = params[:video][:description]
-    video.link = params[:video][:link]
-    video.save
+    video = Video.find_or_create_by(video_params)
+    # video.description = params[:video][:description]
+    # video.link = params[:video][:link]
+    # video.save
     u_vid = UserVideo.new(user_id: current_user.id, video_id: video.id, expiration: params[:video][:user_video][:expiration].to_i)
     u_vid.save
     redirect_to video_path(video)
@@ -22,6 +22,12 @@ class VideosController < ApplicationController
 
   def index
     @videos = Video.all
+  end
+
+  private
+
+  def video_params
+    params.require(:video).permit(:description, :link)
   end
 
 end
