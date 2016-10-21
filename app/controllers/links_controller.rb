@@ -6,16 +6,17 @@ class LinksController < ApplicationController
 
   def create
     # find or create
-    if link = Link.find_or_create_by(link_params)
+    if @link = Link.find_or_create_by(link_params)
+      # binding.pry
       # link = Link.new
       # link.title = params[:link][:title]
       # link.description = params[:link][:description]
       # link.link = params[:link][:link]
       # link.save
       # link.user_links.build(expiration_params.merge({user_id: current_user.id}))
-      u_link = UserLink.new(user_id: current_user.id, link_id: link.id, expiration: params[:link][:user_link][:expiration].to_i)
+      u_link = UserLink.new(user_id: current_user.id, link_id: @link.id, expiration: params[:link][:user_link][:expiration].to_i)
       if u_link.save
-        redirect_to link_path(link)
+        redirect_to link_path(@link)
       else
         @link = Link.new
         render :new

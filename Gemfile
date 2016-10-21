@@ -33,6 +33,8 @@ gem 'omniauth-facebook'
 gem 'require_all'
 gem 'figaro'
 gem 'whenever', :require => false
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
