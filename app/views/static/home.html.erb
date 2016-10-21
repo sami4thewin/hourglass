@@ -29,11 +29,11 @@
   <li><%= link_to l.title, "users/#{current_user.id}/lists/#{l.id}" %></li>
   <br>
   <% end %>
-  <%= link_to "Click here to add a new list.", new_list_path %>
+  <%= link_to "Click here to add a new list.", "users/#{current_user.id}/lists/new" %>
   <br>
   <% else %>
   <h3>You don't have any active lists.</h3>
-  <%= link_to "Start populating your collection here.", new_list_path %>
+  <%= link_to "Start populating your collection here.", "users/#{current_user.id}/lists/new" %>
   <br>
 <% end %>
 
@@ -44,11 +44,11 @@
   <li><%= link_to li.title, "users/#{current_user.id}/links/#{li.id}" %></li>
   <br>
   <% end %>
-  <%= link_to "Click here to add a new link.", new_link_path %>
+  <%= link_to "Click here to add a new link.", "users/#{current_user.id}/links/new" %>
   <br>
   <% else %>
   <h3>You don't have any current links.</h3>
-  <%= link_to "Click here to add one.", new_link_path %>
+  <%= link_to "Click here to add one.", "users/#{current_user.id}/links/new" %>
   <br>
 <% end %>
 
@@ -59,11 +59,11 @@
   <li><%= link_to v.description, "users/#{current_user.id}/videos/#{v.id}" %></li>
   <br>
   <% end %>
-  <%= link_to "Click here to add a new video, please make sure to use an embed link.", new_video_path %>
+  <%= link_to "Click here to add a new video, please make sure to use an embed link.", "users/#{current_user.id}/videos/new" %>
   <br>
   <% else %>
   <h3>It seems you don't have any videos active.</h3>
-  <%= link_to "As long as you have an embed link you can get started here.", new_video_path %>
+  <%= link_to "As long as you have an embed link you can get started here.", "users/#{current_user.id}/videos/new" %>
   <br>
 <% end %>
 <br>
