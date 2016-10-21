@@ -24,6 +24,7 @@ class LinksController < ApplicationController
 
   def show
     @link = Link.find_by(id: params[:id])
+    @user_link = UserLink.where(user_id: current_user.id, link_id: @link.id)[0]
     # binding.pry
   end
 

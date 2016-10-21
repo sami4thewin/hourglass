@@ -1,3 +1,5 @@
 <%= @video.description %>
 <br>
 <iframe width="560" height="315" src="<%=@video.link%>" frameborder="0" allowfullscreen></iframe>
+<br>
+<h3>This video will expire on <%=@user_video.expiration_date%>. <%=@user_video.time_left%></h3>
