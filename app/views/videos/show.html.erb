@@ -3,3 +3,5 @@
 <iframe width="560" height="315" src="<%=@video.link%>" frameborder="0" allowfullscreen></iframe>
 <br>
 <h3>This video will expire on <%=@user_video.expiration_date%>. <%=@user_video.time_left%></h3>
+<br>
+<%= link_to("Mark this video watched.", user_video_path(@user_video), :data => { :confirm => "Are you sure you watched it?" }, :method => :delete, :class => 'button-xs')%>

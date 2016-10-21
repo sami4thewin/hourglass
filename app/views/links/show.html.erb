@@ -4,3 +4,5 @@
 <%= @link.description %>
 <br>
 <h3>This link will expire on <%=@user_link.expiration_date%>. <%=@user_link.time_left%></h3>
+<br>
+<%= link_to("Mark this link read.", user_link_path(@user_link), :data => { :confirm => "Are you sure you read it?" }, :method => :delete, :class => 'button-xs')%>

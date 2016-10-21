@@ -8,40 +8,62 @@
 <h4><%=u.completed%> tasks completed.</h4>
 <% end %>
 <br>
+<% if Link.top.user_links.count == 0 %>
+<h3>There is no current top link, do your part and add one below!</h3>
+<% else %>
 <h3>The current top link is <%= link_to Link.top.title, link_path(Link.top) %>, it's been shared <%= Link.top.user_links.count %> times.</h3>
+<% end %>
 <br>
+<% if Video.top.user_videos.count == 0 %>
+<h3>There is no current top video, help out by adding one below.</h3>
+<% else %>
 <h3>The current top video is <%= link_to Video.top.description, video_path(Video.top) %>, it's been shared <%= Video.top.user_videos.count %> times.</h3>
+<% end %>
 <br>
+
 
 <% if !@user.lists.empty? %>
   <h3>Here are your active lists:</h3>
   <br>
   <% @user.lists.each do |l| %>
   <li><%= link_to l.title, list_path(l) %></li>
+  <br>
   <% end %>
+  <%= link_to "Click here to add a new list.", new_list_path %>
+  <br>
+  <% else %>
+  <h3>You don't have any active lists.</h3>
+  <%= link_to "Start populating your collection here.", new_list_path %>
   <br>
 <% end %>
-<%= link_to "Click here to add a new list.", new_list_path %>
-<br>
 
 <% if !@user.links.empty? %>
   <h3>Here are your active links:</h3>
   <br>
   <% @user.links.each do |li| %>
   <li><%= link_to li.title, "users/#{current_user.id}/links/#{li.id}" %></li>
+  <br>
   <% end %>
+  <%= link_to "Click here to add a new link.", new_link_path %>
+  <br>
+  <% else %>
+  <h3>You don't have any current links.</h3>
+  <%= link_to "Click here to add one.", new_link_path %>
   <br>
 <% end %>
-<%= link_to "Click here to add a new link.", new_link_path %>
-<br>
 
 <% if !@user.videos.empty? %>
   <h3>Here are your active videos:</h3>
   <br>
   <% @user.videos.each do |v| %>
   <li><%= link_to v.description, "users/#{current_user.id}/videos/#{v.id}" %></li>
+  <br>
   <% end %>
+  <%= link_to "Click here to add a new video, please make sure to use an embed link.", new_video_path %>
+  <br>
+  <% else %>
+  <h3>It seems you don't have any videos active.</h3>
+  <%= link_to "As long as you have an embed link you can get started here.", new_video_path %>
   <br>
 <% end %>
-<%= link_to "Click here to add a new video, please make sure to use an embed link.", new_video_path %>
 <br>
