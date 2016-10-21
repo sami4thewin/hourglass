@@ -9,10 +9,14 @@ class ListsController < ApplicationController
   def create
     # binding.pry
     # list = List.create(list_params)
-    list = List.create(user_id: current_user.id, title: params[:list][:title])
-    list.tasks_attributes=(params)
-    # binding.pry
-    redirect_to list_path(list)
+    if params[:list][:list_task][:expiration].to_i < 4 && params[:list][:list_task][:expiration].to_i > 0
+      list = List.create(user_id: current_user.id, title: params[:list][:title])
+      list.tasks_attributes=(params)
+      # binding.pry
+      redirect_to list_path(list)
+    else
+      redirect_to new_list_path
+    end
   end
 
   def show
@@ -51,6 +55,10 @@ class ListsController < ApplicationController
   end
 
   # private
+  #
+  # def list_params
+  #   params.require(:list).permit(:title)
+  # end
 
   # def list_params(*args)
   #   params.require(:list).permit(:title, :tasks_attributes)
