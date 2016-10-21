@@ -9,15 +9,15 @@ class List < ApplicationRecord
     # binding.pry
     if !attr[:list][:tasks_attributes]["0"].nil?
       t = Task.find_or_create_by(description: attr[:list][:tasks_attributes]["0"][:description])
-      lt = ListTask.create(list_id: self.id, task_id: t.id, expiration: attr[:list][:list_task][:expiration])
+      lt = ListTask.create(list_id: self.id, task_id: t.id, expiration: attr[:list][:list_task][:expiration].to_i)
     end
     if !attr[:list][:tasks_attributes]["1"].nil?
       z = Task.find_or_create_by(description: attr[:list][:tasks_attributes]["1"][:description])
-      lz = ListTask.create(list_id: self.id, task_id: z.id, expiration: attr[:list][:list_task][:expiration])
+      lz = ListTask.create(list_id: self.id, task_id: z.id, expiration: attr[:list][:list_task][:expiration].to_i)
     end
     if !attr[:list][:tasks_attributes]["2"].nil?
       y = Task.find_or_create_by(description: attr[:list][:tasks_attributes]["2"][:description])
-      ly = ListTask.create(list_id: self.id, task_id: y.id, expiration: attr[:list][:list_task][:expiration])
+      ly = ListTask.create(list_id: self.id, task_id: y.id, expiration: attr[:list][:list_task][:expiration].to_i)
     end
     # self.tasks.build(attr)
   end

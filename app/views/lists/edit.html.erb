@@ -1,0 +1,41 @@
+<%= form_for @list do |f| %>
+
+<% if @list.tasks.empty? %>
+<h3>This list currently has no tasks.</h3>
+<% else %>
+<h3>Here are the current tasks on this list:</h3>
+<br>
+<%@list.tasks.each do |t| %>
+<%= t.description %>
+<br>
+  <% end %>
+<% end %>
+
+<h5>Add your new tasks below.</h5>
+<br>
+<%= f.fields_for :new_task_1 do |task| %>
+  <%= task.label :description %>
+   <%= task.text_area :description %><br>
+<% end %>
+<br>
+<%= f.fields_for :new_task_2 do |task| %>
+  <%= task.label :description %>
+   <%= task.text_area :description %><br>
+<% end %>
+<br>
+<%= f.fields_for :new_task_3 do |task| %>
+  <%= task.label :description %>
+   <%= task.text_area :description %><br>
+<% end %>
+<br>
+
+
+<%= f.fields_for :list_task do |l| %>
+ <%= l.label "Enter 1-3 as the number of weeks you'd like these tasks available for." %>
+ <%= l.number_field :expiration %><br>
+<% end %>
+<br>
+
+<%= f.submit "Submit List" %>
+
+<% end %>

@@ -8,4 +8,6 @@
 <h3>This task will expire on <%=lt.expiration_date%>. <%=lt.time_left%></h3>
 <% end %>
 <br>
+<%= link_to "Add tasks to this list here.", edit_list_path(@list) %>
+<br>
 <%= link_to("You can also delete this list by clicking here.", list_path(@list), :data => { :confirm => "Are you sure you're finished with this list?" }, :method => :delete, :class => 'button-xs') %>

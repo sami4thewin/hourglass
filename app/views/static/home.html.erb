@@ -26,7 +26,7 @@
   <h3>Here are your active lists:</h3>
   <br>
   <% @user.lists.each do |l| %>
-  <li><%= link_to l.title, list_path(l) %></li>
+  <li><%= link_to l.title, "users/#{current_user.id}/lists/#{l.id}" %></li>
   <br>
   <% end %>
   <%= link_to "Click here to add a new list.", new_list_path %>
