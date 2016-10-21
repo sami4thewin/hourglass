@@ -6,6 +6,8 @@ class Link < ApplicationRecord
   validates :description, presence: true
   validates :link, presence: true
 
+
+
   def self.top
     a = nil
     Link.all.each do |l|

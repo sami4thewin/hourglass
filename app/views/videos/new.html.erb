@@ -9,14 +9,18 @@
       </ul>
     </div>
   <% end %>
+  <br>
 <%= f.label :description %>
+<br>
 <%= f.text_field :description %>
 <br>
 <%= f.label "Link, please use only the SRC of an embed link!" %>
+<br>
 <%= f.text_field :link %>
 <br>
 <%= f.fields_for :user_video do |v| %>
  <%= v.label "Enter 1-3 as the number of weeks you'd like your video available for." %>
+ <br>
  <%= v.number_field :expiration %><br>
 <% end %>
 <br>
