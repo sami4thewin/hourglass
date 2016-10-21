@@ -39,7 +39,7 @@
   <h3>Here are your active videos:</h3>
   <br>
   <% @user.videos.each do |v| %>
-  <li><%= link_to v.description, video_path(v) %></li>
+  <li><%= link_to v.description, "users/#{current_user.id}/videos/#{v.id}" %></li>
   <% end %>
   <br>
 <% end %>
