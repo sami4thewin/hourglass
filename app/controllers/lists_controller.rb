@@ -15,7 +15,13 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find_by(id: params[:id])
-    binding.pry
+    # binding.pry
+  end
+
+  def destroy
+    list = List.find_by(id: params[:id])
+    list.destroy
+    redirect_to '/'
   end
 
 end

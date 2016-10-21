@@ -1,1 +1,11 @@
-<%binding.pry%>
+
+<h2><%= @list.title %></h2>
+<br>
+<% @list.list_tasks.each do |lt| %>
+<h4><%= lt.task.description %></h4>
+<%= link_to("Mark this task finished.", list_task_path(lt), :data => { :confirm => "Are you sure you completed it?" }, :method => :delete, :class => 'button-xs') %>
+<br>
+<h3>This task will expire on <%=lt.expiration_date%>. <%=lt.time_left%></h3>
+<% end %>
+<br>
+<%= link_to("You can also delete this list by clicking here.", list_path(@list), :data => { :confirm => "Are you sure you're finished with this list?" }, :method => :delete, :class => 'button-xs') %>
