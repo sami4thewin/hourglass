@@ -2,6 +2,9 @@ class Link < ApplicationRecord
 
   has_many :user_links
   has_many :users, through: :user_links
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :link, presence: true
 
   def self.top
     a = nil
