@@ -10,6 +10,12 @@ class ListsController < ApplicationController
     # binding.pry
     list = List.create(user_id: current_user.id, title: params[:list][:title])
     list.tasks_attributes=(params)
+    redirect_to list_path(list)
+  end
+
+  def show
+    @list = List.find_by(id: params[:id])
+    binding.pry
   end
 
 end
