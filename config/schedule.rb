@@ -23,5 +23,9 @@ every :hour do
 end
 
 every :hour do
+  runner "ListTask.destroy_expired"
+end
+
+every :hour do
   runner "UserVideo.destroy_expired"
 end
