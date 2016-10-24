@@ -29,9 +29,14 @@ class LinksController < ApplicationController
   end
 
   def show
-    @link = Link.find_by(id: params[:id])
-    @user_link = UserLink.where(user_id: current_user.id, link_id: @link.id)[0]
-    # binding.pry
+    if current_user.id != params[:user_id]
+      flash[:message] = "Not your page."
+      redirect_to '/'
+    else
+      @link = Link.find_by(id: params[:id])
+      @user_link = UserLink.where(user_id: current_user.id, link_id: @link.id)[0]
+    end
+
   end
 
   def index

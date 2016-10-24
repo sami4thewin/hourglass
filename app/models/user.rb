@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   def self.top
     # self.maximum(:completed)
-    self.group(:completed).limit(3)
+    self.order(:completed).reverse_order.limit(3)
   end
 
 
